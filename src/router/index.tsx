@@ -4,7 +4,8 @@ import Layout from '@/layout/index'
 // 路由懒加载
 // 懒加载模式的组件写法，外面需要套一层loading
 const About = lazy(() => import('@/views/About'))
-
+const NotFound = lazy(() => import('@/views/404/index'))
+const Test = lazy(() => import('@/components/Comp1'))
 // import { Navigate } from 'react-router-dom'
 
 const withLoadingCom = (com: JSX.Element) => (
@@ -28,8 +29,16 @@ const routes = [
         path: '/about',
         element: withLoadingCom(<About></About>),
       },
+      {
+        path: '/test',
+        element: withLoadingCom(<Test></Test>),
+      },
     ],
   },
+  {
+    path: '*',
+    element:  withLoadingCom(<NotFound></NotFound>),
+  }
 ]
 
 export default routes
