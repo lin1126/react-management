@@ -1,6 +1,7 @@
 import React, { lazy } from 'react'
 import Home from '@/views/Home'
 import Layout from '@/layout/index'
+import Login from '@/views/Login/index.tsx'
 // 路由懒加载
 // 懒加载模式的组件写法，外面需要套一层loading
 const About = lazy(() => import('@/views/About'))
@@ -36,9 +37,13 @@ const routes = [
     ],
   },
   {
+    path: '/login',
+    element: <Login></Login>,
+  },
+  {
     path: '*',
-    element:  withLoadingCom(<NotFound></NotFound>),
-  }
+    element: withLoadingCom(<NotFound></NotFound>),
+  },
 ]
 
 export default routes

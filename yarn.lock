@@ -7,6 +7,13 @@
   resolved "https://registry.yarnpkg.com/@aashutoshrathi/word-wrap/-/word-wrap-1.2.6.tgz#bd9154aec9983f77b3a034ecaa015c2e4201f6cf"
   integrity sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==
 
+"@alex_xu/react-slider-vertify@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@alex_xu/react-slider-vertify/-/react-slider-vertify-1.2.0.tgz#0d4635df357285d07336d3556041372fb33b083d"
+  integrity sha512-NOrTnEfBgMHQYzDNOi/6kp6fUdeSuZ1mVImNczqzzzQDPiHHV5Sjwnx/vIhfPA79BWZQiM1qVwgUG/heMPn8zQ==
+  dependencies:
+    "@babel/runtime" "^7.15.4"
+
 "@ampproject/remapping@^2.2.0":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.2.1.tgz#99e8e11851128b8702cd57c33684f1d0f260b630"
