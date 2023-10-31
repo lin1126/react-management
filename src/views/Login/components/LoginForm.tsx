@@ -1,14 +1,21 @@
-import React, { useState } from 'react'
-import { LockOutlined, UserOutlined } from '@ant-design/icons'
-import { Button, Form, Input, Radio } from 'antd'
+import React, { useEffect, useState } from 'react'
+import { LockOutlined, UserOutlined, VerifiedOutlined } from '@ant-design/icons'
+import { Button, Form, Input, Radio, Flex, Image } from 'antd'
 import { Vertify } from '@alex_xu/react-slider-vertify'
 import styles from './LoginForm.module.scss'
 import { useNavigate } from 'react-router-dom'
+import { getCaptcha } from '@/services/login.js'
 
 const LoginForm: React.FC = () => {
   const useNavigateTo = useNavigate()
   const [loginForm] = Form.useForm()
+
+  useEffect(() => {
+    onChangeCode()
+  }, [])
+
   const onFinish = (values: any) => {
+    console.log(values, 'values')
     if (vertify) {
       if (values.username == 'admin' && values.password == 'admin123') {
         useNavigateTo('/')
@@ -20,6 +27,11 @@ const LoginForm: React.FC = () => {
     } else {
       setVertifyShow(true)
     }
+  }
+
+  const onChangeCode = async () => {
+    const data = await getCaptcha()
+    console.log(data)
   }
 
   const [vertifyShow, setVertifyShow] = useState<boolean>(false)
@@ -72,6 +84,28 @@ const LoginForm: React.FC = () => {
             placeholder="Password"
           />
         </Form.Item>
+
+        <Form.Item
+          name="code"
+          rules={[
+            { required: true, message: 'Please input Verification code!' },
+          ]}
+        >
+          <Flex justify="space-between">
+            <div className={styles.flex1}>
+              <Input
+                prefix={<VerifiedOutlined className="site-form-item-icon" />}
+                placeholder="Verification code"
+              />
+            </div>
+            <img
+              className={styles.codeImg}
+              src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
+              onClick={onChangeCode}
+            />
+          </Flex>
+        </Form.Item>
+
         <Form.Item>
           <Radio
             checked={vertify}
