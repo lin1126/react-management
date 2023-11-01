@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { LockOutlined, UserOutlined, VerifiedOutlined } from '@ant-design/icons'
-import { Button, Form, Input, Radio, Flex, Image } from 'antd'
+import { Button, Form, Input, Radio, Flex } from 'antd'
 import { Vertify } from '@alex_xu/react-slider-vertify'
 import styles from './LoginForm.module.scss'
 import { useNavigate } from 'react-router-dom'
-import { getCaptcha } from '@/services/login.js'
+import { getCaptcha } from '@/services/login'
 
 const LoginForm: React.FC = () => {
   const useNavigateTo = useNavigate()
