@@ -10,7 +10,12 @@ import {
   PlayCircleOutlined,
 } from '@ant-design/icons'
 
+import { routes } from '@/router/index'
+
 const MainMenu = () => {
+  const menuRoutes = routes[0].children
+  console.log(menuRoutes, 'menuRoutes')
+
   const useNavigateTo = useNavigate()
   // 菜单项
   const items = [
@@ -31,7 +36,7 @@ const MainMenu = () => {
       children: [
         {
           label: '栏目一',
-          key: '/test',
+          key: '/SubMeueOne',
         },
         {
           label: '栏目二',
@@ -53,7 +58,6 @@ const MainMenu = () => {
   const location = useLocation()
   console.log(location, 'locationlocationlocation')
 
-
   // 默认展开选中子菜单的父菜单
   let openDefaultKeys = ''
   if (!items.find((t) => t.key === location.pathname)) {
@@ -66,8 +70,6 @@ const MainMenu = () => {
   }
 
   const [openKeys, setOpenKeys] = useState([openDefaultKeys])
-
-  
 
   const onClickMenu = (e: { key: string }) => {
     console.log('点击菜单', e.key)
