@@ -10,11 +10,8 @@ import {
   PlayCircleOutlined,
 } from '@ant-design/icons'
 
-import { routes } from '@/router/index'
 
 const MainMenu = () => {
-  const menuRoutes = routes[0].children
-  console.log(menuRoutes, 'menuRoutes')
 
   const useNavigateTo = useNavigate()
   // 菜单项
