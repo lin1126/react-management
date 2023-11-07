@@ -6,7 +6,7 @@ import Login from '@/views/Login/index.tsx'
 // 懒加载模式的组件写法，外面需要套一层loading
 const About = lazy(() => import('@/views/About'))
 const NotFound = lazy(() => import('@/views/404/index'))
-const Test = lazy(() => import('@/components/Comp1'))
+const SubMeueOne = lazy(() => import('@/views/SubMeueOne/index'))
 // import { Navigate } from 'react-router-dom'
 
 const withLoadingCom = (com: JSX.Element) => (
@@ -31,8 +31,8 @@ const routes = [
         element: withLoadingCom(<About></About>),
       },
       {
-        path: '/test',
-        element: withLoadingCom(<Test></Test>),
+        path: '/SubMeueOne',
+        element: withLoadingCom(<SubMeueOne></SubMeueOne>),
       },
     ],
   },
