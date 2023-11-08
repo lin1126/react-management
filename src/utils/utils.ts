@@ -11,17 +11,6 @@ export const formatRouter = (data: any, label?: string, key?: string) => {
   }
 
   const formatList: any = []
-  // if (t.meta) {
-  //   if (t.meta.menuShow === undefined || t.meta.menuShow) {
-  //     return true
-  //   } else {
-  //     return false
-  //   }
-  // } else {
-  //   return true
-  // }
-  console.log(data, 'data')
-
   const buildChildrenRouter = (
     list: any,
     retList: any,
@@ -47,6 +36,5 @@ export const formatRouter = (data: any, label?: string, key?: string) => {
   }
 
   buildChildrenRouter(data, formatList)
-  console.log(formatList, 'routerData')
   return formatList
 }
