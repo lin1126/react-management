@@ -1,51 +1,20 @@
 import type { MenuProps } from 'antd'
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 
 import { Menu } from 'antd'
 import { useNavigate, useLocation } from 'react-router-dom'
 
-import {
-  DesktopOutlined,
-  PieChartOutlined,
-  PlayCircleOutlined,
-} from '@ant-design/icons'
+import routes from '@/router/index'
+import { formatRouter } from '@/utils/utils'
 
-
+// 格式化路由工具
 const MainMenu = () => {
-
   const useNavigateTo = useNavigate()
+
+  const items = useMemo(() => {
+    return formatRouter(routes[0].children)
+  }, [routes])
   // 菜单项
-  const items = [
-    {
-      label: '首页',
-      key: '/',
-      icon: <PieChartOutlined />,
-    },
-    {
-      label: '关于',
-      key: '/about',
-      icon: <DesktopOutlined />,
-    },
-    {
-      label: '子菜单',
-      key: '/sub',
-      icon: <PlayCircleOutlined />,
-      children: [
-        {
-          label: '栏目一',
-          key: '/SubMeueOne',
-        },
-        {
-          label: '栏目二',
-          key: '2',
-        },
-        {
-          label: '栏目三',
-          key: '3',
-        },
-      ],
-    },
-  ]
 
   /**
    * @pathname - 当前路径名，例如 /用户
@@ -57,9 +26,12 @@ const MainMenu = () => {
 
   // 默认展开选中子菜单的父菜单
   let openDefaultKeys = ''
-  if (!items.find((t) => t.key === location.pathname)) {
-    items.some((t) => {
-      if (t.children && t.children.find((t1) => t1.key === location.pathname)) {
+  if (!items.find((t: any) => t.key === location.pathname)) {
+    items.some((t: any) => {
+      if (
+        t.children &&
+        t.children.find((t1: any) => t1.key === location.pathname)
+      ) {
         openDefaultKeys = t.key
         return true
       }

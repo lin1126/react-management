@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Comp1 from '@/components/Comp1'
-import { themes, ThemeContext } from './context'
+import { themes, ThemeContext } from './context.ts'
 
 const subMeueOne = () => {
   const [thems, setThems] = useState(themes.dark)

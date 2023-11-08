@@ -2,16 +2,21 @@ import React, { lazy } from 'react'
 import Home from '@/views/Home'
 import Layout from '@/layout/index'
 import Login from '@/views/Login/index.tsx'
+
 // 路由懒加载
 // 懒加载模式的组件写法，外面需要套一层loading
 const About = lazy(() => import('@/views/About'))
 const NotFound = lazy(() => import('@/views/404/index'))
-const SubMeueOne = lazy(() => import('@/views/SubMeueOne/index'))
+const UseContextCom = lazy(() => import('@/views/SubMeue/UseContextCom/index'))
+const UseEffectCom = lazy(() => import('@/views/SubMeue/UseEffectCom'))
 // import { Navigate } from 'react-router-dom'
 
-const withLoadingCom = (com: JSX.Element) => (
-  <React.Suspense fallback={<div>Loading</div>}>{com}</React.Suspense>
-)
+// 引入图标
+import {
+  DesktopOutlined,
+  PieChartOutlined,
+  PlayCircleOutlined,
+} from '@ant-design/icons'
 
 const routes = [
   // {
@@ -25,14 +30,41 @@ const routes = [
       {
         element: <Home></Home>,
         index: true,
+        meta: {
+          name: '首页',
+          icon: <PieChartOutlined />,
+        },
       },
       {
         path: '/about',
-        element: withLoadingCom(<About></About>),
+        element: <About></About>,
+        meta: {
+          name: '关于',
+          icon: <DesktopOutlined />,
+        },
       },
       {
-        path: '/SubMeueOne',
-        element: withLoadingCom(<SubMeueOne></SubMeueOne>),
+        path: '/SubMeue',
+        meta: {
+          name: '子菜单',
+          icon: <PlayCircleOutlined />,
+        },
+        children: [
+          {
+            path: 'usecontext',
+            element: <UseContextCom></UseContextCom>,
+            meta: {
+              name: 'useContext',
+            },
+          },
+          {
+            path: 'useeffect',
+            element: <UseEffectCom></UseEffectCom>,
+            meta: {
+              name: 'UseEffectCom',
+            },
+          },
+        ],
       },
     ],
   },
@@ -42,7 +74,7 @@ const routes = [
   },
   {
     path: '*',
-    element: withLoadingCom(<NotFound></NotFound>),
+    element: <NotFound></NotFound>,
   },
 ]
 

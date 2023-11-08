@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 // 样式初始化
 import 'reset-css'
@@ -15,7 +16,9 @@ import store from './store/index.ts'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <Suspense fallback={<div>Loading</div>}>
+        <App />
+      </Suspense>
     </BrowserRouter>
   </Provider>
 )
