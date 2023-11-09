@@ -10,6 +10,7 @@ const NotFound = lazy(() => import('@/views/404/index'))
 const UseContextCom = lazy(() => import('@/views/SubMeue/UseContextCom/index'))
 const UseEffectCom = lazy(() => import('@/views/SubMeue/UseEffectCom'))
 const UseReducerCom =  lazy(() => import('@/views/SubMeue/UseReducerCom'))
+const UseCallbackCom = lazy(() => import('@/views/SubMeue/UseCallbackCom'))
 // import { Navigate } from 'react-router-dom'
 
 // 引入图标
@@ -47,7 +48,7 @@ const routes = [
       {
         path: '/SubMeue',
         meta: {
-          name: '子菜单',
+          name: 'react-hooks',
           icon: <PlayCircleOutlined />,
         },
         children: [
@@ -71,6 +72,13 @@ const routes = [
             element: <UseReducerCom></UseReducerCom>,
             meta: {
               name: 'useReducerCom',
+            },
+          },
+          {
+            path: 'UseCallbackCom',
+            element: <UseCallbackCom></UseCallbackCom>,
+            meta: {
+              name: 'UseCallbackCom',
             },
           },
         ],
