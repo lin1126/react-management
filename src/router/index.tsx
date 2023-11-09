@@ -9,6 +9,7 @@ const About = lazy(() => import('@/views/About'))
 const NotFound = lazy(() => import('@/views/404/index'))
 const UseContextCom = lazy(() => import('@/views/SubMeue/UseContextCom/index'))
 const UseEffectCom = lazy(() => import('@/views/SubMeue/UseEffectCom'))
+const UseReducerCom =  lazy(() => import('@/views/SubMeue/UseReducerCom'))
 // import { Navigate } from 'react-router-dom'
 
 // 引入图标
@@ -55,6 +56,7 @@ const routes = [
             element: <UseContextCom></UseContextCom>,
             meta: {
               name: 'useContext',
+              menuShow: true,
             },
           },
           {
@@ -62,6 +64,13 @@ const routes = [
             element: <UseEffectCom></UseEffectCom>,
             meta: {
               name: 'UseEffectCom',
+            },
+          },
+          {
+            path: 'useReducerCom',
+            element: <UseReducerCom></UseReducerCom>,
+            meta: {
+              name: 'useReducerCom',
             },
           },
         ],
