@@ -9,8 +9,10 @@ const About = lazy(() => import('@/views/About'))
 const NotFound = lazy(() => import('@/views/404/index'))
 const UseContextCom = lazy(() => import('@/views/SubMeue/UseContextCom/index'))
 const UseEffectCom = lazy(() => import('@/views/SubMeue/UseEffectCom'))
-const UseReducerCom =  lazy(() => import('@/views/SubMeue/UseReducerCom'))
+const UseReducerCom = lazy(() => import('@/views/SubMeue/UseReducerCom'))
 const UseCallbackCom = lazy(() => import('@/views/SubMeue/UseCallbackCom'))
+const UserStateCom = lazy(() => import('@/views/SubMeue/UserStateCom'))
+const ClosureStaleCom = lazy(() => import('@/views/SubMeue/ClosureStaleCom'))
 // import { Navigate } from 'react-router-dom'
 
 // 引入图标
@@ -61,6 +63,14 @@ const routes = [
             },
           },
           {
+            path: 'userstateCom',
+            element: <UserStateCom></UserStateCom>,
+            meta: {
+              name: 'userState',
+              menuShow: true,
+            },
+          },
+          {
             path: 'useeffect',
             element: <UseEffectCom></UseEffectCom>,
             meta: {
@@ -79,6 +89,13 @@ const routes = [
             element: <UseCallbackCom></UseCallbackCom>,
             meta: {
               name: 'UseCallbackCom',
+            },
+          },
+          {
+            path: 'ClosureStaleCom',
+            element: <ClosureStaleCom></ClosureStaleCom>,
+            meta: {
+              name: 'ClosureStaleCom（过时闭包）',
             },
           },
         ],

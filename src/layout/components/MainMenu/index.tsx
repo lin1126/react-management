@@ -22,7 +22,7 @@ const MainMenu = () => {
    * @hash - 当前的哈希值，例如 ＃example。
    */
   const location = useLocation()
-  console.log(location, 'locationlocationlocation')
+  // console.log(location, 'locationlocationlocation')
 
   // 默认展开选中子菜单的父菜单
   let openDefaultKeys = ''
@@ -41,7 +41,7 @@ const MainMenu = () => {
   const [openKeys, setOpenKeys] = useState([openDefaultKeys])
 
   const onClickMenu = (e: { key: string }) => {
-    console.log('点击菜单', e.key)
+    // console.log('点击菜单', e.key)
     useNavigateTo(e.key)
   }
 
