@@ -13,6 +13,7 @@ const UseReducerCom = lazy(() => import('@/views/SubMeue/UseReducerCom'))
 const UseCallbackCom = lazy(() => import('@/views/SubMeue/UseCallbackCom'))
 const UserStateCom = lazy(() => import('@/views/SubMeue/UserStateCom'))
 const ClosureStaleCom = lazy(() => import('@/views/SubMeue/ClosureStaleCom'))
+const CustomHookCom = lazy(() => import('@/views/SubMeue/CustomHookCom'))
 // import { Navigate } from 'react-router-dom'
 
 // 引入图标
@@ -74,28 +75,35 @@ const routes = [
             path: 'useeffect',
             element: <UseEffectCom></UseEffectCom>,
             meta: {
-              name: 'UseEffectCom',
+              name: 'UseEffect',
             },
           },
           {
             path: 'useReducerCom',
             element: <UseReducerCom></UseReducerCom>,
             meta: {
-              name: 'useReducerCom',
+              name: 'useReducer',
             },
           },
           {
             path: 'UseCallbackCom',
             element: <UseCallbackCom></UseCallbackCom>,
             meta: {
-              name: 'UseCallbackCom',
+              name: 'UseCallback',
             },
           },
           {
             path: 'ClosureStaleCom',
             element: <ClosureStaleCom></ClosureStaleCom>,
             meta: {
-              name: 'ClosureStaleCom（过时闭包）',
+              name: 'ClosureStale（过时闭包）',
+            },
+          },
+          {
+            path: 'CustomHookCom',
+            element: <CustomHookCom></CustomHookCom>,
+            meta: {
+              name: '自定义Hook',
             },
           },
         ],
